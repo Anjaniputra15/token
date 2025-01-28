@@ -1,0 +1,15 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Replace with the version your project requires
+    - name: Install Jekyll
+      run: |
+        gem install jekyll bundler
+        bundle install
+    - name: Build Site
+      run: bundle exec jekyll build
